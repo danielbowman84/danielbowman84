@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skunked in the South Bay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1208;
+      --cream: #f5ead6;
+      --tan: #c9a96e;
+      --rust: #8b3a1a;
+      --water: #2c5f6e;
+      --deep: #0d2b35;
+      --fog: #e8dcc8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--deep);
+      color: var(--cream);
+      font-family: 'Libre Baskerville', Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background:
+        radial-gradient(ellipse at 50% 80%, rgba(44,95,110,0.6) 0%, transparent 70%),
+        radial-gradient(ellipse at 20% 20%, rgba(139,58,26,0.15) 0%, transparent 50%),
+        linear-gradient(180deg, #0d2b35 0%, #12404f 50%, #0d2b35 100%);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Animated water ripple lines */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 38px,
+          rgba(44,95,110,0.12) 38px,
+          rgba(44,95,110,0.12) 40px
+        );
+      animation: drift 12s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes drift {
+      0%   { background-position-y: 0; }
+      100% { background-position-y: 80px; }
+    }
+
+    .badge {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .logo-wrap {
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.5s;
+    }
+
+    /* SVG fish silhouette decoration */
+    .fish-deco {
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.18;
+      width: 220px;
+    }
+
+    h1 {
+      font-family: 'Rye', cursive;
+      font-size: clamp(2.8rem, 8vw, 6.5rem);
+      line-height: 1;
+      color: var(--cream);
+      text-shadow: 0 0 60px rgba(201,169,110,0.4), 0 4px 20px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    h1 .line1 { display: block; color: var(--tan); font-size: 0.52em; letter-spacing: 0.15em; }
+    h1 .line2 { display: block; }
+    h1 .line3 { display: block; color: var(--tan); font-size: 0.52em; letter-spacing: 0.1em; }
+
+    .tagline {
+      margin-top: 1.5rem;
+      font-style: italic;
+      font-size: clamp(0.9rem, 2vw, 1.15rem);
+      color: #a8c8d0;
+      max-width: 520px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.9s;
+    }
+
+    .divider {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--tan), transparent);
+      margin: 1.8rem auto;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.9s;
+    }
+
+    /* ── NAVIGATION CARDS ── */
+    .nav-section {
+      padding: 4rem 1.5rem 5rem;
+      background: var(--ink);
+      position: relative;
+    }
+
+    .nav-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--rust), var(--tan), var(--rust), transparent);
+    }
+
+    .section-label {
+      text-align: center;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Rye', cursive;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      color: var(--cream);
+      margin-bottom: 2.5rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #1c3540, #122530);
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 4px;
+      padding: 1.6rem 1.4rem;
+      text-decoration: none;
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rust), var(--tan));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,169,110,0.5);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+
+    .card:hover::after { transform: scaleX(1); }
+
+    .card-icon { font-size: 1.8rem; }
+
+    .card-title {
+      font-family: 'Rye', cursive;
+      font-size: 1rem;
+      color: var(--tan);
+      line-height: 1.2;
+    }
+
+    .card-sub {
+      font-size: 0.78rem;
+      font-style: italic;
+      color: #7fa8b4;
+      line-height: 1.5;
+    }
+
+    .card-arrow {
+      margin-top: auto;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: var(--tan);
+      opacity: 0.7;
+    }
+
+    /* special cards */
+    .card.etsy {
+      background: linear-gradient(145deg, #2a1a10, #1a0e08);
+      border-color: rgba(139,58,26,0.4);
+    }
+    .card.newsletter {
+      background: linear-gradient(145deg, #0e2535, #081520);
+      border-color: rgba(44,95,110,0.5);
+    }
+
+    /* ── ABOUT STRIP ── */
+    .about-strip {
+      background: linear-gradient(135deg, #0d2b35, #122a1f);
+      padding: 4rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(201,169,110,0.15);
+    }
+
+    .about-strip blockquote {
+      font-family: 'Rye', cursive;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: var(--cream);
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.5;
+    }
+
+    .about-strip p {
+      font-style: italic;
+      color: #8ab0bc;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080f12;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #3a5560;
+      letter-spacing: 0.05em;
+      border-top: 1px solid rgba(201,169,110,0.08);
+    }
+
+    footer a { color: var(--tan); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="badge">Santa Clara County · California</div>
+
+    <div class="logo-wrap">
+      <!-- Simple SVG fish decoration -->
+      <svg class="fish-deco" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="90" cy="30" rx="72" ry="22" fill="white"/>
+        <polygon points="165,30 210,8 210,52" fill="white"/>
+        <circle cx="38" cy="26" r="5" fill="#0d2b35"/>
+        <line x1="62" y1="15" x2="62" y2="45" stroke="#0d2b35" stroke-width="1.5"/>
+        <line x1="76" y1="11" x2="76" y2="49" stroke="#0d2b35" stroke-width="1.5"/>
+        <line x1="90" y1="9" x2="90" y2="51" stroke="#0d2b35" stroke-width="1.5"/>
+        <line x1="104" y1="11" x2="104" y2="49" stroke="#0d2b35" stroke-width="1.5"/>
+        <line x1="118" y1="15" x2="118" y2="45" stroke="#0d2b35" stroke-width="1.5"/>
+        <line x1="132" y1="20" x2="132" y2="40" stroke="#0d2b35" stroke-width="1.5"/>
+      </svg>
+
+      <h1>
+        <span class="line1">Skunked in the</span>
+        <span class="line2">South Bay</span>
+        <span class="line3">— Fishing Guide —</span>
+      </h1>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="tagline">
+      Your honest, local guide to fishing Santa Clara County's reservoirs and waterways —
+      because some days the fish win, and that's okay.
+    </p>
+  </section>
+
+  <!-- ── LOCATIONS ── -->
+  <section class="nav-section">
+    <p class="section-label">Explore</p>
+    <h2 class="section-title reveal">Local Fishing Spots</h2>
+
+    <div class="cards-grid">
+
+      <a href="calero.html" class="card reveal">
+        <span class="card-icon">🏞️</span>
+        <div class="card-title">Calero Reservoir</div>
+        <p class="card-sub">Bass, catfish & crappie. One of the South Bay's most productive lakes.</p>
+        <span class="card-arrow">Explore →</span>
+      </a>
+
+      <a href="uvas.html" class="card reveal">
+        <span class="card-icon">🌲</span>
+        <div class="card-title">Uvas Reservoir</div>
+        <p class="card-sub">Largemouth bass & bluegill in a scenic, lightly fished setting.</p>
+        <span class="card-arrow">Explore →</span>
+      </a>
+
+      <a href="coyote-lake.html" class="card reveal">
+        <span class="card-icon">🦅</span>
+        <div class="card-title">Coyote Lake</div>
+        <p class="card-sub">Trophy catfish nights and solid bass action year-round.</p>
+        <span class="card-arrow">Explore →</span>
+      </a>
+
+      <a href="coyote-creek.html" class="card reveal">
+        <span class="card-icon">🌊</span>
+        <div class="card-title">Coyote Creek</div>
+        <p class="card-sub">Steelhead, stripers & carp in the valley's most diverse fishery.</p>
+        <span class="card-arrow">Explore →</span>
+      </a>
+
+      <a href="almaden.html" class="card reveal">
+        <span class="card-icon">⛰️</span>
+        <div class="card-title">Almaden Reservoir</div>
+        <p class="card-sub">Hidden gem in the Almaden hills — bass and panfish abound.</p>
+        <span class="card-arrow">Explore →</span>
+      </a>
+
+      <!-- Placeholder for future spots -->
+      <a href="#" class="card reveal" style="opacity:0.5; cursor:default; pointer-events:none;">
+        <span class="card-icon">📍</span>
+        <div class="card-title">More Coming Soon</div>
+        <p class="card-sub">Anderson, Chesbro, Stevens Creek & more on the way.</p>
+        <span class="card-arrow">Stay tuned</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── BRAND / ABOUT ── -->
+  <section class="about-strip">
+    <blockquote class="reveal">"Getting skunked just means you haven't found the right spot yet."</blockquote>
+    <p class="reveal">
+      Skunked in the South Bay was built by a local angler tired of bad intel and tourist-bait guides.
+      Every tip on this site is hard-won, season-tested, and South Bay–specific.
+      No fluff. Just fishing.
+    </p>
+  </section>
+
+  <!-- ── MERCH + NEWSLETTER ── -->
+  <section class="nav-section" style="background: #0f1e25; padding-top: 3rem;">
+    <p class="section-label">Connect</p>
+    <h2 class="section-title reveal">Gear Up & Stay in the Loop</h2>
+
+    <div class="cards-grid" style="max-width: 500px; margin: 0 auto;">
+
+      <a href="https://www.etsy.com" target="_blank" rel="noopener" class="card etsy reveal">
+        <span class="card-icon">🧢</span>
+        <div class="card-title">Merch on Etsy</div>
+        <p class="card-sub">Hats, shirts & stickers. Wear your skunked badge with pride.</p>
+        <span class="card-arrow">Shop Now →</span>
+      </a>
+
+      <a href="newsletter.html" class="card newsletter reveal">
+        <span class="card-icon">📬</span>
+        <div class="card-title">Join the Newsletter</div>
+        <p class="card-sub">Bite reports, regulation updates & seasonal tips. No spam, ever.</p>
+        <span class="card-arrow">Sign Up →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>© 2025 Skunked in the South Bay &nbsp;·&nbsp;
+      Always check <a href="https://wildlife.ca.gov/fishing/sportfishing-regulations" target="_blank">CDFW regulations</a> before you go.
+      &nbsp;·&nbsp; Santa Clara County, California
+    </p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

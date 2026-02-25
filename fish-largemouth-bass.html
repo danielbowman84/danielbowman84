@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Largemouth Bass — Skunked in the South Bay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rye&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  
+  <style>
+    :root {
+      --ink: #1a1208;
+      --cream: #f5ead6;
+      --tan: #c9a96e;
+      --rust: #8b3a1a;
+      --water: #2c5f6e;
+      --deep: #0d2b35;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--deep);
+      color: var(--cream);
+      font-family: 'Libre Baskerville', Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      background: #080f12;
+      border-bottom: 2px solid rgba(201,169,110,0.2);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand {
+      font-family: 'Rye', cursive;
+      font-size: 0.95rem;
+      color: var(--tan);
+      text-decoration: none;
+      text-shadow: 0 0 20px rgba(201,169,110,0.3);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+    }
+    .nav-links a {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7fa8b4;
+      text-decoration: none;
+      padding: 0.3rem 0.65rem;
+      border-radius: 2px;
+      transition: color 0.15s, background 0.15s;
+      font-family: 'Libre Baskerville', serif;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--tan);
+      background: rgba(201,169,110,0.08);
+    }
+
+    /* HERO */
+    .page-hero {
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(44,95,110,0.5) 0%, transparent 70%),
+        radial-gradient(ellipse at 80% 10%, rgba(139,58,26,0.12) 0%, transparent 50%),
+        linear-gradient(180deg, #0d2b35 0%, #12404f 55%, #0d2b35 100%);
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        0deg, transparent, transparent 38px,
+        rgba(44,95,110,0.1) 38px, rgba(44,95,110,0.1) 40px
+      );
+      animation: drift 14s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes drift {
+      0%   { background-position-y: 0; }
+      100% { background-position-y: 80px; }
+    }
+    .page-hero .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.1s;
+    }
+    .page-hero h1 {
+      font-family: 'Rye', cursive;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      color: var(--cream);
+      text-shadow: 0 0 60px rgba(201,169,110,0.35), 0 4px 24px rgba(0,0,0,0.6);
+      line-height: 1.05;
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.35s;
+    }
+    .page-hero .subtitle {
+      margin-top: 1.2rem;
+      font-style: italic;
+      color: #a8c8d0;
+      font-size: clamp(0.88rem, 2vw, 1.05rem);
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.6s;
+    }
+    .gold-divider {
+      width: 110px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--tan), transparent);
+      margin: 1.6rem auto;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.6s;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CONTENT BODY */
+    .content-body {
+      background: var(--ink);
+      position: relative;
+    }
+    .content-body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--rust), var(--tan), var(--rust), transparent);
+    }
+    .content-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .section {
+      padding: 3.2rem 0;
+      border-bottom: 1px solid rgba(201,169,110,0.1);
+    }
+    .section:last-child { border-bottom: none; }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 0.4rem;
+      font-family: 'Libre Baskerville', serif;
+    }
+    .section h2 {
+      font-family: 'Rye', cursive;
+      font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+      color: var(--cream);
+      margin-bottom: 1.4rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    .section p {
+      color: #c0d8e0;
+      line-height: 1.9;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    /* INFO CARDS (techniques, rigs, etc) */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.1rem;
+      margin-top: 1.4rem;
+    }
+    .info-card {
+      background: linear-gradient(145deg, #1c3540, #122530);
+      border: 1px solid rgba(201,169,110,0.18);
+      border-radius: 4px;
+      padding: 1.3rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .info-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rust), var(--tan));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .info-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(201,169,110,0.45);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+    }
+    .info-card:hover::after { transform: scaleX(1); }
+    .info-card .ic-icon { font-size: 1.7rem; margin-bottom: 0.55rem; }
+    .info-card .ic-title {
+      font-family: 'Rye', cursive;
+      font-size: 0.88rem;
+      color: var(--tan);
+      margin-bottom: 0.4rem;
+    }
+    .info-card p {
+      font-size: 0.77rem;
+      font-style: italic;
+      color: #7fa8b4;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* LOCATION LINKS */
+    .loc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+    .loc-card {
+      background: linear-gradient(145deg, #0f2a36, #0a1c26);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 4px;
+      padding: 1.2rem;
+      text-decoration: none;
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .loc-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rust), var(--tan));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .loc-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(201,169,110,0.4);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+    }
+    .loc-card:hover::after { transform: scaleX(1); }
+    .loc-card .lc-icon { font-size: 1.4rem; }
+    .loc-card .lc-title {
+      font-family: 'Rye', cursive;
+      font-size: 0.85rem;
+      color: var(--tan);
+    }
+    .loc-card .lc-detail {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: #7fa8b4;
+      line-height: 1.4;
+    }
+    .loc-card .lc-arrow {
+      margin-top: auto;
+      font-size: 0.7rem;
+      color: var(--tan);
+      opacity: 0.65;
+    }
+
+    /* REGS BOX */
+    .regs-box {
+      background: linear-gradient(145deg, #0e1f2a, #0a1820);
+      border: 1px solid rgba(44,95,110,0.4);
+      border-radius: 4px;
+      padding: 1.6rem;
+      margin-top: 1.2rem;
+    }
+    .regs-box ul { list-style: none; padding: 0; }
+    .regs-box ul li {
+      font-size: 0.88rem;
+      color: #b8d8e0;
+      padding: 0.45rem 0 0.45rem 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      line-height: 1.5;
+    }
+    .regs-box ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--tan);
+      font-size: 0.68rem;
+      top: 0.55rem;
+    }
+    .regs-box ul li:last-child { border-bottom: none; }
+    .regs-box .reg-note {
+      margin-top: 1.1rem;
+      font-size: 0.75rem;
+      font-style: italic;
+      color: #5a8090;
+      line-height: 1.6;
+    }
+    .regs-box .reg-note a { color: var(--tan); text-decoration: none; }
+
+    /* RELATED PAGES STRIP */
+    .related-strip {
+      background: #0f1e25;
+      border-top: 4px solid transparent;
+      border-image: linear-gradient(90deg, transparent, var(--rust), var(--tan), var(--rust), transparent) 1;
+      padding: 3.5rem 1.5rem;
+    }
+    .related-strip .strip-label {
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 0.4rem;
+      font-family: 'Libre Baskerville', serif;
+    }
+    .related-strip .strip-title {
+      text-align: center;
+      font-family: 'Rye', cursive;
+      font-size: clamp(1.3rem, 3.5vw, 2rem);
+      color: var(--cream);
+      margin-bottom: 2rem;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.9rem;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .rel-card {
+      background: linear-gradient(145deg, #1c3540, #122530);
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 4px;
+      padding: 1rem;
+      text-decoration: none;
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .rel-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rust), var(--tan));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .rel-card:hover { transform: translateY(-3px); border-color: rgba(201,169,110,0.45); box-shadow: 0 10px 28px rgba(0,0,0,0.4); }
+    .rel-card:hover::after { transform: scaleX(1); }
+    .rel-card .rc-icon { font-size: 1.2rem; }
+    .rel-card .rc-title { font-family: 'Rye', cursive; font-size: 0.78rem; color: var(--tan); line-height: 1.2; }
+    .rel-card .rc-arrow { font-size: 0.65rem; color: var(--tan); opacity: 0.6; }
+
+    /* FOOTER */
+    footer {
+      background: #080f12;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.73rem;
+      color: #3a5560;
+      letter-spacing: 0.05em;
+      border-top: 1px solid rgba(201,169,110,0.08);
+    }
+    footer a { color: var(--tan); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Skunked in the South Bay</a>
+  <div class="nav-links">
+    <a href="calero.html">Calero</a>
+    <a href="uvas.html">Uvas</a>
+    <a href="coyote-lake.html">Coyote Lake</a>
+    <a href="coyote-creek.html">Coyote Creek</a>
+    <a href="almaden.html">Almaden</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="https://www.etsy.com" target="_blank" rel="noopener">Merch ↗</a>
+  </div>
+</nav>
+<section class="page-hero">
+  <p class="eyebrow">Species Guide · South Bay Freshwater</p>
+  <h1>Largemouth Bass</h1>
+  <div class="gold-divider"></div>
+  <p class="subtitle">California's premier freshwater trophy fish — and the South Bay has more big ones than most people realize.</p>
+</section>
+<div class="content-body">
+  <div class="content-wrap">
+
+    <div class="section">
+      <p class="section-label">The Species</p>
+      <h2 class="reveal">About Largemouth Bass</h2>
+      <p class="reveal">Largemouth bass are the undisputed king of South Bay freshwater fishing. California produces some of the largest largemouth in the world — 21 of the biggest 25 largemouth bass in the US were caught in California — and while our local reservoirs aren't Clear Lake or Castaic, they hold fish that will absolutely surprise you. Seven-pound bass are caught at Calero every spring. Double-digit fish are not unheard of.</p>
+      <p class="reveal">Largemouth thrive in the warm, structured reservoirs of Santa Clara County. They are ambush predators, lurking near weed edges, submerged timber, rocky points, and dock pilings. Understanding their seasonal patterns — spawning in spring, retreating deep in summer, feeding aggressively in fall — is the key to consistent success.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">How to Catch Them</p>
+      <h2 class="reveal">Rigs, Lures & Techniques</h2>
+      <div class="info-grid">
+      
+      <div class="info-card reveal">
+        <div class="ic-icon">🪱</div>
+        <div class="ic-title">Texas Rig</div>
+        <p>The workhorse. Weedless soft plastic rigged on an offset hook with a bullet weight. Fish it slow in and around heavy cover.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="ic-icon">🎏</div>
+        <div class="ic-title">Drop Shot</div>
+        <p>Best for finesse fishing in clear water or when bass are pressured. Keep it still — let the tail quiver do the work.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="ic-icon">🔩</div>
+        <div class="ic-title">Ned Rig</div>
+        <p>Small mushroom jig with a finesse worm. Deadly on tough days. Fish it on the bottom with tiny hops.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="ic-icon">💥</div>
+        <div class="ic-title">Topwater</div>
+        <p>Buzzbaits, poppers, and walking baits at dawn and dusk. One of the most exciting ways to fish for bass.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="ic-icon">🪝</div>
+        <div class="ic-title">Chatterbait</div>
+        <p>Fast retrieve along weed edges in spring and fall. Great search bait for covering water quickly.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="ic-icon">🎯</div>
+        <div class="ic-title">Jig</div>
+        <p>A heavy jig flipped into heavy cover or crawled along the bottom near structure. Catches the biggest fish.</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">By Season</p>
+      <h2 class="reveal">When to Target Them</h2>
+      <div class="info-grid">
+      
+      <div class="info-card reveal">
+        <div class="ic-icon">🌸</div>
+        <div class="ic-title">Spring — Best Season</div>
+        <p>Bass move shallow to spawn in March–May. Find them in 1–4 ft of water in coves. Aggressive biters — any lure works.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="ic-icon">☀️</div>
+        <div class="ic-title">Summer — Go Early</div>
+        <p>Bass retreat to deeper, cooler water by 9am. Fish the first two hours of daylight or switch to night fishing near the dam.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="ic-icon">🍂</div>
+        <div class="ic-title">Fall — Feed-Up Bite</div>
+        <p>Cooling water triggers aggressive feeding. Reaction baits — crankbaits, spinnerbaits — parallel to shore are deadly.</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="ic-icon">❄️</div>
+        <div class="ic-title">Winter — Slow Down</div>
+        <p>Cold water means slow metabolism. Drop shots and finesse rigs near bottom structure. Noon to 3pm is peak.</p>
+      </div>
+    </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">California Regulations</p>
+      <h2 class="reveal">Rules to Know</h2>
+      <div class="regs-box reveal">
+        <ul>
+          <li>Minimum size: 12 inches (statewide for all black bass)</li>
+          <li>Daily bag limit: 5 fish combined (largemouth, smallmouth, and spotted bass)</li>
+          <li>No seasonal closure — bass fishing is open year-round in California</li>
+          <li>Live bait prohibited at all Santa Clara County reservoirs — artificial or dead/prepared bait only</li>
+          <li>All Santa Clara County reservoirs are catch-and-release only — no bass may be kept</li>
+          <li>A valid California Sport Fishing License is required for anglers 16 and older</li>
+        </ul>
+        <p class="reg-note">Always verify current rules at <a href="https://wildlife.ca.gov/fishing/sportfishing-regulations" target="_blank">CDFW.ca.gov</a> before fishing.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Where to Find Them</p>
+      <h2 class="reveal">Local Spots</h2>
+      <div class="loc-grid">
+      
+      <a href="calero.html" class="loc-card reveal">
+        <div class="lc-icon">🏞️</div>
+        <div class="lc-title">Calero Reservoir</div>
+        <div class="lc-detail">Trophy bass & monster carp</div>
+        <div class="lc-arrow">Full guide →</div>
+      </a>
+      <a href="uvas.html" class="loc-card reveal">
+        <div class="lc-icon">🌲</div>
+        <div class="lc-title">Uvas Reservoir</div>
+        <div class="lc-detail">Best bass when water is full</div>
+        <div class="lc-arrow">Full guide →</div>
+      </a>
+      <a href="coyote-lake.html" class="loc-card reveal">
+        <div class="lc-icon">🦅</div>
+        <div class="lc-title">Coyote Lake</div>
+        <div class="lc-detail">Big catfish nights</div>
+        <div class="lc-arrow">Full guide →</div>
+      </a>
+      <a href="coyote-creek.html" class="loc-card reveal">
+        <div class="lc-icon">🌊</div>
+        <div class="lc-title">Coyote Creek</div>
+        <div class="lc-detail">Urban creek with diverse species</div>
+        <div class="lc-arrow">Full guide →</div>
+      </a>
+      <a href="almaden.html" class="loc-card reveal">
+        <div class="lc-icon">⛰️</div>
+        <div class="lc-title">Almaden Reservoir</div>
+        <div class="lc-detail">Stocked trout & bank fishing</div>
+        <div class="lc-arrow">Full guide →</div>
+      </a>
+    </div>
+    </div>
+</div></div>
+<section class="related-strip">
+  <p class="strip-label">Also in the South Bay</p>
+  <h2 class="strip-title reveal">Other Species Guides</h2>
+  <div class="related-grid">
+    
+    <a href="fish-smallmouth-bass.html" class="rel-card reveal">
+      <div class="rc-icon">🐠</div>
+      <div class="rc-title">Smallmouth Bass</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="fish-crappie.html" class="rel-card reveal">
+      <div class="rc-icon">🐟</div>
+      <div class="rc-title">Black Crappie</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="fish-bluegill.html" class="rel-card reveal">
+      <div class="rc-icon">🌊</div>
+      <div class="rc-title">Bluegill</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="fish-catfish.html" class="rel-card reveal">
+      <div class="rc-icon">🐈</div>
+      <div class="rc-title">Channel Catfish</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="fish-carp.html" class="rel-card reveal">
+      <div class="rc-icon">🐡</div>
+      <div class="rc-title">Common Carp</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="fish-trout.html" class="rel-card reveal">
+      <div class="rc-icon">🌈</div>
+      <div class="rc-title">Rainbow Trout</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="fish-steelhead.html" class="rel-card reveal">
+      <div class="rc-icon">⚡</div>
+      <div class="rc-title">Steelhead</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="fish-redear.html" class="rel-card reveal">
+      <div class="rc-icon">☀️</div>
+      <div class="rc-title">Redear Sunfish</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    
+    <a href="season-spring.html" class="rel-card reveal">
+      <div class="rc-icon">🌸</div>
+      <div class="rc-title">Spring Fishing</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="season-summer.html" class="rel-card reveal">
+      <div class="rc-icon">☀️</div>
+      <div class="rc-title">Summer Fishing</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="season-fall.html" class="rel-card reveal">
+      <div class="rc-icon">🍂</div>
+      <div class="rc-title">Fall Fishing</div>
+      <div class="rc-arrow">→</div>
+    </a>
+    <a href="season-winter.html" class="rel-card reveal">
+      <div class="rc-icon">❄️</div>
+      <div class="rc-title">Winter Fishing</div>
+      <div class="rc-arrow">→</div>
+    </a>
+  </div>
+</section>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Skunked in the South Bay &nbsp;·&nbsp;
+    Always verify at <a href="https://wildlife.ca.gov/fishing/sportfishing-regulations" target="_blank">CDFW.ca.gov</a>
+    &nbsp;·&nbsp; Santa Clara County, California
+  </p>
+</footer>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

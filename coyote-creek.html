@@ -254,7 +254,8 @@
 
     .species-card:hover::after { transform: scaleX(1); }
 
-    .species-card .s-icon { font-size: 1.7rem; margin-bottom: 0.55rem; }
+    .species-card .s-icon { margin-bottom: 0.55rem; }
+    .species-card .s-icon img { width: 100%; height: 60px; object-fit: contain; }
 
     .species-card .s-name {
       font-family: 'Rye', cursive;
@@ -287,11 +288,7 @@
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .season-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(201,169,110,0.35);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-    }
+
 
     .season-card .season-name {
       font-family: 'Rye', cursive;
@@ -457,6 +454,20 @@
       opacity: 1;
       transform: translateY(0);
     }
+  
+    a.season-card {
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a.season-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(201,169,110,0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
   </style>
 
 </head>
@@ -500,26 +511,26 @@
       <h2 class="reveal">Target Species</h2>
       <div class="species-grid">
         
-        <div class="species-card reveal">
-          <div class="s-icon">🎣</div>
+        <a href="fish-largemouth-bass.html" class="species-card reveal" style="text-decoration:none;color:inherit;display:block;">
+          <div class="s-icon"><img src="images/largemouth-bass.png" alt="Largemouth Bass"></div>
           <div class="s-name">Largemouth Bass</div>
           <p>The top target in deeper pools and slow bends. Work soft plastics and jigs along undercut banks and woody structure.</p>
-        </div>
-        <div class="species-card reveal">
-          <div class="s-icon">🌊</div>
+        </a>
+        <a href="fish-bluegill.html" class="species-card reveal" style="text-decoration:none;color:inherit;display:block;">
+          <div class="s-icon"><img src="images/bluegill.png" alt="Bluegill"></div>
           <div class="s-name">Bluegill</div>
           <p>Everywhere in the creek. Perfect light tackle sport — worms or small spinners under a bobber.</p>
-        </div>
-        <div class="species-card reveal">
-          <div class="s-icon">🐠</div>
+        </a>
+        <a href="fish-carp.html" class="species-card reveal" style="text-decoration:none;color:inherit;display:block;">
+          <div class="s-icon"><img src="images/carp.png" alt="Common Carp"></div>
           <div class="s-name">Common Carp</div>
           <p>Massive carp cruise the shallow flats. Sight fishing with corn or dough balls can be exciting, technical sport.</p>
-        </div>
-        <div class="species-card reveal">
-          <div class="s-icon">🐡</div>
+        </a>
+        <a href="fish-steelhead.html" class="species-card reveal" style="text-decoration:none;color:inherit;display:block;">
+          <div class="s-icon"><img src="images/rainbow-trout.png" alt="Steelhead"></div>
           <div class="s-name">Steelhead (Seasonal)</div>
           <p>Lower Coyote Creek has documented steelhead in wet years. Rare and special — release immediately and handle with extreme care.</p>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -529,22 +540,22 @@
       <h2 class="reveal">When & How to Fish</h2>
       <div class="season-grid">
         
-        <div class="season-card reveal">
+        <a href="season-spring.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">🌸 Spring (Mar–May)</div>
           <ul><li>Bass active in warming pools — best season</li><li>Spinnerbaits and shallow crankbaits in slower sections</li><li>Flows can be high — target eddies behind structure</li><li>Carp beginning to show in the shallows</li></ul>
-        </div>
-        <div class="season-card reveal">
+        </a>
+        <a href="season-summer.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">☀️ Summer (Jun–Aug)</div>
           <ul><li>Fish early — creek can get very low and warm</li><li>Shade is critical — fish under bridges and tree canopy</li><li>Carp sight fishing in clear low-water flats</li><li>Small tubes and grubs for bass in the deeper holes</li></ul>
-        </div>
-        <div class="season-card reveal">
+        </a>
+        <a href="season-fall.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">🍂 Fall (Sep–Nov)</div>
           <ul><li>Great bass season as temperatures cool</li><li>Jigs and soft plastics near woody structure</li><li>Flows begin returning with the first fall rains</li><li>Carp still active before the winter cool-down</li></ul>
-        </div>
-        <div class="season-card reveal">
+        </a>
+        <a href="season-winter.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">❄️ Winter (Dec–Feb)</div>
           <ul><li>Flows can be high and fast after storms — use caution</li><li>Focus on slower backwater pockets out of the current</li><li>Rare steelhead opportunity in high-flow years</li><li>Bass slow significantly — use finesse presentations</li></ul>
-        </div>
+        </a>
       </div>
     </div>
 

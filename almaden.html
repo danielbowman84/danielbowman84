@@ -287,11 +287,7 @@
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .season-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(201,169,110,0.35);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-    }
+
 
     .season-card .season-name {
       font-family: 'Rye', cursive;
@@ -457,6 +453,20 @@
       opacity: 1;
       transform: translateY(0);
     }
+  
+    a.season-card {
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a.season-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(201,169,110,0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
   </style>
 
 </head>
@@ -539,22 +549,22 @@
       <h2 class="reveal">When & How to Fish</h2>
       <div class="season-grid">
         
-        <div class="season-card reveal">
+        <a href="season-spring.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">🌸 Spring (Mar–May)</div>
           <ul><li>Bass move shallow for spawn — prime time</li><li>Work rocky points and weed edges with jigs</li><li>Crankbaits along structure in 3–8 ft of water</li><li>Trout stocking may extend into early spring</li></ul>
-        </div>
-        <div class="season-card reveal">
+        </a>
+        <a href="season-summer.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">☀️ Summer (Jun–Aug)</div>
           <ul><li>Fish the first two hours of daylight</li><li>Bass retreat to shaded, deeper structure midday</li><li>Topwater at dawn near overhanging tree canopy</li><li>Catfish night bite along the bottom near the dam</li></ul>
-        </div>
-        <div class="season-card reveal">
+        </a>
+        <a href="season-fall.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">🍂 Fall (Sep–Nov)</div>
           <ul><li>Bass feeding aggressively before winter</li><li>Chatterbaits and crankbaits in shallower water</li><li>Crappie bite picks up — small grubs in coves</li><li>Cool, calm mornings can produce spectacular fishing</li></ul>
-        </div>
-        <div class="season-card reveal">
+        </a>
+        <a href="season-winter.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">❄️ Winter (Dec–Feb)</div>
           <ul><li>Trout stocking season — check the CDFW plant schedule</li><li>PowerBait and small spoons for stocked trout</li><li>Bass slow significantly — finesse tactics only</li><li>Midday is the prime window when temps warm up</li></ul>
-        </div>
+        </a>
       </div>
     </div>
 

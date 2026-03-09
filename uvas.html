@@ -254,7 +254,8 @@
 
     .species-card:hover::after { transform: scaleX(1); }
 
-    .species-card .s-icon { font-size: 1.7rem; margin-bottom: 0.55rem; }
+    .species-card .s-icon { margin-bottom: 0.55rem; }
+    .species-card .s-icon img { width: 100%; height: 60px; object-fit: contain; }
 
     .species-card .s-name {
       font-family: 'Rye', cursive;
@@ -287,11 +288,7 @@
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .season-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(201,169,110,0.35);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-    }
+
 
     .season-card .season-name {
       font-family: 'Rye', cursive;
@@ -457,6 +454,20 @@
       opacity: 1;
       transform: translateY(0);
     }
+  
+    a.season-card {
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a.season-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(201,169,110,0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
   </style>
 
 </head>
@@ -500,26 +511,26 @@
       <h2 class="reveal">Target Species</h2>
       <div class="species-grid">
         
-        <div class="species-card reveal">
-          <div class="s-icon">🎣</div>
+        <a href="fish-largemouth-bass.html" class="species-card reveal" style="text-decoration:none;color:inherit;display:block;">
+          <div class="s-icon"><img src="images/largemouth-bass.png" alt="Largemouth Bass"></div>
           <div class="s-name">Largemouth Bass</div>
           <p>The star of the show. When the lake is full, bass fishing here is exceptional — fish near rocks, weeds, and submerged structure.</p>
-        </div>
-        <div class="species-card reveal">
-          <div class="s-icon">🐟</div>
+        </a>
+        <a href="fish-crappie.html" class="species-card reveal" style="text-decoration:none;color:inherit;display:block;">
+          <div class="s-icon"><img src="images/crappie.png" alt="Black Crappie"></div>
           <div class="s-name">Black Crappie</div>
           <p>Strong population, especially in coves. Small jigs and grubs around submerged brush and timber.</p>
-        </div>
-        <div class="species-card reveal">
-          <div class="s-icon">🌊</div>
+        </a>
+        <a href="fish-bluegill.html" class="species-card reveal" style="text-decoration:none;color:inherit;display:block;">
+          <div class="s-icon"><img src="images/bluegill.png" alt="Bluegill & Redear"></div>
           <div class="s-name">Bluegill & Redear</div>
           <p>Abundant in the shallows near the creek inlet. Great for light tackle or introducing kids to the sport.</p>
-        </div>
-        <div class="species-card reveal">
-          <div class="s-icon">🐈</div>
+        </a>
+        <a href="fish-catfish.html" class="species-card reveal" style="text-decoration:none;color:inherit;display:block;">
+          <div class="s-icon"><img src="images/catfish.png" alt="Channel Catfish"></div>
           <div class="s-name">Channel Catfish</div>
           <p>Patrol depths near the dam in the evenings. Nightcrawlers and cut bait are proven producers.</p>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -529,22 +540,22 @@
       <h2 class="reveal">When & How to Fish</h2>
       <div class="season-grid">
         
-        <div class="season-card reveal">
+        <a href="season-spring.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">🌸 Spring (Mar–May)</div>
           <ul><li>Bass move shallow — best time of year</li><li>Work shoreline structure with soft plastics</li><li>Crankbaits and spinnerbaits near weed edges</li><li>Creek inlet is prime for multiple species</li></ul>
-        </div>
-        <div class="season-card reveal">
+        </a>
+        <a href="season-summer.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">☀️ Summer (Jun–Aug)</div>
           <ul><li>Fish early morning before heat sets in</li><li>Topwater poppers and walking baits at dawn</li><li>Drop shot and shaky heads during midday heat</li><li>Catfish go at dusk near the dam wall</li></ul>
-        </div>
-        <div class="season-card reveal">
+        </a>
+        <a href="season-fall.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">🍂 Fall (Sep–Nov)</div>
           <ul><li>Strong fall feed-up bite for bass</li><li>Chatterbaits, spinnerbaits, and Senkos productive</li><li>Bass hold near the bottom — let baits sink</li><li>Best overall catfish season of the year</li></ul>
-        </div>
-        <div class="season-card reveal">
+        </a>
+        <a href="season-winter.html" class="season-card reveal" style="text-decoration:none;">
           <div class="season-name">❄️ Winter (Dec–Feb)</div>
           <ul><li>Water temps drop — fish very slowly</li><li>Drop shot near the dam in deeper water</li><li>Target midday warmth windows for best action</li><li>Trout may be stocked — check CDFW schedule</li></ul>
-        </div>
+        </a>
       </div>
     </div>
 

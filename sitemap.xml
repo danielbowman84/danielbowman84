@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
   <url>
     <loc>https://skunkedinthesouthbay.com/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Fishing Spots -->
   <url>
     <loc>https://skunkedinthesouthbay.com/calero.html</loc>
     <changefreq>monthly</changefreq>
@@ -30,6 +34,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Species Guides -->
   <url>
     <loc>https://skunkedinthesouthbay.com/fish-largemouth-bass.html</loc>
     <changefreq>monthly</changefreq>
@@ -41,12 +47,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skunkedinthesouthbay.com/fish-catfish.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://skunkedinthesouthbay.com/fish-trout.html</loc>
+    <loc>https://skunkedinthesouthbay.com/fish-crappie.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -56,12 +57,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skunkedinthesouthbay.com/fish-crappie.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://skunkedinthesouthbay.com/fish-redear.html</loc>
+    <loc>https://skunkedinthesouthbay.com/fish-catfish.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -71,28 +67,41 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://skunkedinthesouthbay.com/fish-trout.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://skunkedinthesouthbay.com/fish-steelhead.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skunkedinthesouthbay.com/season-spring.html</loc>
+    <loc>https://skunkedinthesouthbay.com/fish-redear.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Seasonal Guides -->
+  <url>
+    <loc>https://skunkedinthesouthbay.com/season-spring.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://skunkedinthesouthbay.com/season-summer.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://skunkedinthesouthbay.com/season-fall.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://skunkedinthesouthbay.com/season-winter.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
+
 </urlset>
